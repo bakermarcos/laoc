@@ -37,7 +37,7 @@ module nRisc (
     Concatenador concatenador(Instrucao[l:0], wire_dado_concatenado);
 
     // Mux (Dado0, Dadol, Sinal, Saida):
-    Mux muxl(Instrucao[4:2], reg_sete, Branch, wire_LeRegl);
+    Mux mux1(Instrucao[4:2], reg_sete, Branch, wire_LeRegl);
 
     Mux mux2(wire_dado_concatenado, Instrucao([4:2], Branch, wire_LeReg2));
     Mux mux3(Instrucao[4:2], reg_sete, Slt, wire_EscreveReq);
