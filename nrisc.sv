@@ -59,9 +59,9 @@ module nRisc (
     // Controle (Opcode, ULAOp, Beqz, RegFonte, EscMem, ULAFonte, LerMem, SelDest, Ji, EscReg, EscPC)
     unidade_controle controle(Instrucao[7:5], ULAOp, Beqz, RegFonte, EscMem, ULAFonte, LerMem, SelDest, Ji, EscReg, EscPC);
 
-    // module registerBox (Readl, Read2, EscReg, WriteData, wire_EscreveReg, Data1, Data2, clock, reset);
+    // module registerBox (Read1, Read2, EscReg, WriteData, wire_EscreveReg, Data1, Data2, clock, reset);
     registerBox BancoReg(
-        wire_LeRegl,
+        Instrucao[2:0],
         wire_LeReg2,
         EscReg,
         WriteData,
