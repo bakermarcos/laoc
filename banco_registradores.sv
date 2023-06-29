@@ -6,11 +6,12 @@ module registerBox (
     RegWrite,
     Data1,
     Data2,
-    clock
+    clock,
+    reset
 );
     input [2:0] Read1, Read2, WriteReg;
     input [7:0] WriteData;
-    input RegWrite, clock;
+    input RegWrite, clock, reset;
     output reg [7:0] Data1, Data2;
     reg [7:0] RF [7:0];
 

@@ -1,5 +1,5 @@
 module concat (
- input [1:0] Entrada,
+ input [2:0] Entrada,
  output reg [2:0] Saida
 );
  always @(*)
