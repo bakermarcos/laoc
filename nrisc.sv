@@ -74,7 +74,7 @@ module nRisc (
     // module registerBox (Read1, Read2, EscReg, WriteData, wire_EscreveReg, Data1, Data2, clock, reset);
     registerBox BancoReg(
         Instrucao[2:0],
-        wire_LeReg2,
+        Instrucao[4:3],
         EscReg,
         WriteData,
         wire_EscreveReg,

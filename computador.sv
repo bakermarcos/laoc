@@ -8,27 +8,33 @@ module Computador;
     wire [7:0] EscreveDado;
     wire EscMem, LerMem;
     wire [7:0] LeDado;
+    
+    instructions_memory MemI (
+        .clock(Clock),
+        .endereco(LeEndereco),
+        .instrucao(Instrucao)
+    );
 
     nRisc processador (
         .Clock(Clock),
         .reset(reset),
         .Instrucao(Instrucao),
-        .LeEndereco(LeEndereco),
+        .SaidaPCLeEndereco(LeEndereco),
         .LeDado(LeDado),
-        .Endereco(Endereco),
-        .EscreveDado(EscreveDado),
+        .Data2(Endereco),
+        .Data1(EscreveDado),
         .EscMem(EscMem),
         .LerMem(LerMem)
     );
 
     //module memoria de_dados (clock, EscMem, LerMem, endereco, escreveDado, leDado):
     data_memory MemD (
-        .Clock(Clock),
-        .EscMem(EscMem),
-        .LerMem(LerMem),
-        .Endereco(Endereco),
-        .EscreveDado(EscreveDado),
-        .LeDado(LeDado)
+        .clock(Clock),
+        .memWrite(EscMem),
+        .memRead(LerMem),
+        .endereco(Endereco),
+        .escreveDado(EscreveDado),
+        .leDado(LeDado)
     );
 
     integer i;
@@ -43,8 +49,8 @@ module Computador;
     end
 
     initial begin
-        $monitor("Time=%0d Clock=%b SaidaPC=%d Instrucao=%b Maior ($S3)=%d",
-            $time, Clock, processador.LeEndereco, processador.Instrucao[7:5], processador.BancoReg.RF[6]);
+        $monitor("Time=%0d Clock=%b SaidaPC=%d Instrucao=%b Maior ($S2)=%d",
+            $time, Clock, processador.SaidaPCLeEndereco, processador.Instrucao[7:5], processador.BancoReg.RF[6]);
     end
 
 endmodule
