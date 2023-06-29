@@ -9,15 +9,19 @@ module PC (
     input wire reset;
     input wire [7:0] EntradaPC;
     input wire EscPC;
-    output wire [7:0] SaidaPC;
-    reg [7:0] PC = 8'b00000000;
+    output reg [7:0] SaidaPC;
 
-    always @(posedge clock) begin
-        if (EscPC) begin
-            PC = EntradaPC;
-        end
+    initial begin
+    reg [7:0] PC = 8'b00000000;
     end
 
-    assign SaidaPC = PC;
+    always @(posedge clock) begin
+        if (EscPC == 0) begin
+            SaidaPC = SaidaPC;
+        end
+        else if (EscPC==1) begin
+            SaidaPC = EntradaPC;
+        end
+    end
 
 endmodule
