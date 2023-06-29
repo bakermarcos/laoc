@@ -2,7 +2,7 @@ module registerBox (
     Read1,
     Read2,
     Read3,
-    WriteReg,
+    EscReg,
     WriteData,
     RegWrite,
     Data1,

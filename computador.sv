@@ -22,7 +22,7 @@ module Computador;
     );
 
     //module memoria de_dados (clock, EscMem, LerMem, endereco, escreveDado, leDado):
-    memoria_de_dados MemD (
+    data_memory MemD (
         .Clock(Clock),
         .EscMem(EscMem),
         .LerMem(LerMem),

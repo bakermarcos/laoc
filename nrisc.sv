@@ -1,3 +1,15 @@
+`include "pc.sv"
+`include "somador.sv"
+`include "ula.sv"
+`include "and.sv"
+`include "banco_registradores.sv"
+`include "concatenador.sv"
+`include "controle.sv"
+`include "data_memory.sv"
+`include "extensor_sinal.sv"
+`include "instructions_memory.sv"
+`include "mux.sv"
+
 module nRisc (
     Clock,
     reset,
@@ -25,9 +37,9 @@ module nRisc (
     wire [7:0] WriteData;
 
     // sinas controle
-    wire Beqz, RegFonte, ULAFonte, SelDest, Ji, EscReg, EscPC;
+    wire Beqz, RegFonte, SelDest, Ji, EscReg, EscPC;
     output wire EscMem, LerMem;
-    wire [1:0] ULAOp;
+    wire [1:0] ULAOp, ULAFonte;
     output wire [7:0] Data1, Data2;
 
     // TODO: verificar VARIÁVEL
@@ -46,15 +58,15 @@ module nRisc (
     concat concatenador(Instrucao[2:0], wire_dado_concatenado);
 
     // Mux (Dado0, Dado1, Sinal, Saida):
-    mux2 muxRegEsc(Instrucao[4:1], Instrucao[2:0], EscReg, wire_EscreveReq);
+  mux23 muxRegEsc(Instrucao[3:1], Instrucao[2:0], EscReg, wire_EscreveReg);
     //module ExtensorDeSinal (Entrada, Saida)
-    ExtensorDeSinal extensor(Instrucao[1:0], DadoExtendido);
+    extensor_numeros extensor(Instrucao[1:0], DadoExtendido);
 
     // Mux3 (Dado0, Dado1, Dado2, Sinal, Saida):
-    mux3 muxUla1(DadoExtendido, 2'b00, Data2, ULAFonte, Entrada1Ula);
+    mux38 muxUla1(DadoExtendido, 8'b00000000, Data2, ULAFonte, Entrada1Ula);
 
     // Mux (Dado0, Dadol, Sinal, Saida):
-    mux2 muxEscMem(Data1, Data2, SelDest, WriteData);
+    mux28 muxEscMem(Data1, Data2, SelDest, WriteData);
 
     // Controle (Opcode, ULAOp, Beqz, RegFonte, EscMem, ULAFonte, LerMem, SelDest, Ji, EscReg, EscPC)
     unidade_controle controle(Instrucao[7:5], ULAOp, Beqz, RegFonte, EscMem, ULAFonte, LerMem, SelDest, Ji, EscReg, EscPC);
@@ -68,17 +80,16 @@ module nRisc (
         wire_EscreveReg,
         Data1,
         Data2,
-        Clock,
-        reset
+        Clock
     );
 
     //module Ula(Dadol, Dado2, ULAOp, Zero, Resultado):
-    Ula ula(Entrada1Ula, Data2, ULAOp, Zero, Resultado);
+    ula ula(Entrada1Ula, Data2, ULAOp, Zero, Resultado);
 
-    mux2 muxBeqz(DadoExtendido, 2'b00, wire_saida_and, WriteData);
+    mux28 muxBeqz(DadoExtendido, 8'b00000000, wire_saida_and, WriteData);
 
-    AND porta_and(wire_muxé, Ji, wire_saida_and);
+    AND porta_and(wire_mux6, Ji, wire_saida_and);
 
-    mux2 muxJi(Pcmais1, LeDado, Ji, EntradaPC);
+    mux28 muxJi(Pcmais1, LeDado, Ji, EntradaPC);
 
-endmodule;
+endmodule

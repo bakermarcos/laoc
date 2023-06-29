@@ -9,7 +9,7 @@ module data_memory (
     input clock, memWrite, memRead;
     input [7:0] endereco, escreveDado;
     output reg [7:0] leDado;
-    reg [7:0] MEMD [0:255];
+    reg [7:0] MEMD [255:0];
 
     // Vetor contido na memória 0 a 6 {1,2,3,6,4,5,7}
     initial begin

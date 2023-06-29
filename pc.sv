@@ -12,7 +12,7 @@ module PC (
     output reg [7:0] SaidaPC;
 
     initial begin
-    reg [7:0] PC = 8'b00000000;
+    	SaidaPC = 8'b00000000;
     end
 
     always @(posedge clock) begin

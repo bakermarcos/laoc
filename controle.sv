@@ -4,7 +4,7 @@ module unidade_controle(
  output reg Beqz,
  output reg RegFonte,
  output reg EscMem,
- output reg ULAFonte,
+ output reg [1:0] ULAFonte,
  output reg LerMem,
  output reg SelDest,
  output reg Ji,
@@ -18,7 +18,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 3'b10;
        EscMem = 1'b0;
-       ULAFonte = 1'b0;
+       ULAFonte = 2'b00;
        LerMem = 1'b0;
        SelDest = 1'b0;
        Ji = 1'b0;
@@ -30,7 +30,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 3'b00;
        EscMem = 1'b0;
-       ULAFonte = 1'b0;
+       ULAFonte = 2'b00;
        LerMem = 1'b1;
        SelDest = 1'b0;
        Ji = 1'b0;
@@ -42,7 +42,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 2'b00;
        EscMem = 1'b1;
-       ULAFonte = 1'b0;
+       ULAFonte = 2'b00;
        LerMem = 1'b0;
        SelDest = 1'b1;
        Ji = 1'b0;
@@ -54,7 +54,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 3'b00;
        EscMem = 1'b0;
-       ULAFonte = 1'b0;
+       ULAFonte = 2'b00;
        LerMem = 1'b0;
        SelDest = 1'b0;
        Ji = 1'b0;
@@ -66,7 +66,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 3'b11;
        EscMem = 1'b0;
-       ULAFonte = 1'b1;
+       ULAFonte = 2'b01;
        LerMem = 1'b0;
        SelDest = 1'b0;
        Ji = 1'b0;
@@ -78,7 +78,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 3'b00;
        EscMem = 1'b0;
-       ULAFonte = 1'b0;
+       ULAFonte = 2'b00;
        LerMem = 1'b0;
        SelDest = 1'b0;
        Ji = 1'b1;
@@ -90,7 +90,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 3'b01;
        EscMem = 1'b0;
-       ULAFonte = 1'b0;
+       ULAFonte = 2'b00;
        LerMem = 1'b0;
        SelDest = 1'b0;
        Ji = 1'b0;
@@ -102,7 +102,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 3'b00;
        EscMem = 1'b0;
-       ULAFonte = 1'b0;
+       ULAFonte = 2'b00;
        LerMem = 1'b0;
        SelDest = 1'b0;
        Ji = 1'b0;
