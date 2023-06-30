@@ -5,10 +5,9 @@ module PC (
     EscPC,
     SaidaPC
 );
-    input wire clock;
-    input wire reset;
+    input clock, reset;
     input wire [7:0] EntradaPC;
-    input wire EscPC;
+    input EscPC;
     output reg [7:0] SaidaPC;
 
     initial begin

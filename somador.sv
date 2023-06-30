@@ -4,6 +4,6 @@ module somador(entradaPc, saidaPc);
 
 
  always @(entradaPc) begin
-   saidaPc = entradaPc + 1;
+   saidaPc = entradaPc + 8'b00000001;
  end
 endmodule

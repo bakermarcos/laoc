@@ -30,8 +30,6 @@ module nRisc (
     // TODO: verificar VARIÁVEL
     wire [2:0] wire_dado_concatenado;
     wire [2:0] wire_LeReg1, wire_LeReg2, wire_EscreveReg;
-    // TODO: verificar VARIÁVEL
-    // reg [2:0] reg_set = 3'b111;
 
     // TODO: verificar VARIÁVEL aonde vai exatamente
     wire [7:0] WriteData;
@@ -40,15 +38,17 @@ module nRisc (
     wire Beqz, RegFonte, SelDest, Ji, EscReg, EscPC;
     output wire EscMem, LerMem;
     wire [1:0] ULAOp, ULAFonte;
+
+
     output wire [7:0] Data1, Data2;
 
     // TODO: verificar VARIÁVEL
-    wire [7:0] DadoExtendido;
+    wire [7:0] DadoExtendido, PC_Extendido;
     wire Zero;
     wire [7:0] Entrada1Ula, Entrada2Ula, Resultado;
     // TODO: verificar VARIÁVEL wire_mux6
-    wire wire_mux6, wire_saida_and;
-    wire [7:0] EntradaPC;
+    wire wire_saida_and;
+    wire [7:0] EntradaPC, saidaMuxJi, wire_muxBeqz;
 
     //module PC (clock, reset, EntradaPC, EscPC, SaidaPC):;
     PC pc(Clock, reset, EntradaPC, EscPC, SaidaPCLeEndereco);
@@ -58,15 +58,12 @@ module nRisc (
     concat concatenador(Instrucao[2:0], wire_dado_concatenado);
 
     // Mux (Dado0, Dado1, Sinal, Saida):
-  mux23 muxRegEsc(Instrucao[3:1], Instrucao[2:0], EscReg, wire_EscreveReg);
+    mux23 muxRegEsc(Instrucao[3:1], Instrucao[2:0], SelDest, wire_EscreveReg);
     //module ExtensorDeSinal (Entrada, Saida)
     extensor_numeros extensor(Instrucao[1:0], DadoExtendido);
 
     // Mux3 (Dado0, Dado1, Dado2, Sinal, Saida):
     mux38 muxUla1(DadoExtendido, 8'b00000000, Data2, ULAFonte, Entrada1Ula);
-
-    // Mux (Dado0, Dadol, Sinal, Saida):
-    mux28 muxEscMem(Data1, Data2, SelDest, WriteData);
 
     // Controle (Opcode, ULAOp, Beqz, RegFonte, EscMem, ULAFonte, LerMem, SelDest, Ji, EscReg, EscPC)
     unidade_controle controle(Instrucao[7:5], ULAOp, Beqz, RegFonte, EscMem, ULAFonte, LerMem, SelDest, Ji, EscReg, EscPC);
@@ -86,10 +83,13 @@ module nRisc (
     //module Ula(Dadol, Dado2, ULAOp, Zero, Resultado):
     ula ula(Entrada1Ula, Data2, ULAOp, Zero, Resultado);
 
-    mux28 muxBeqz(DadoExtendido, 8'b00000000, wire_saida_and, WriteData);
+    mux28 muxBeqz(DadoExtendido, 8'b00000000, wire_saida_and, wire_muxBeqz);
 
-    AND porta_and(wire_mux6, Ji, wire_saida_and);
+    AND porta_and(Zero, Beqz, wire_saida_and);
+    
+    extensor_PC extensorPC(Instrucao[4:0], PC_Extendido);
+    mux28 muxJi(PC_Extendido, wire_muxBeqz, Ji, saidaMuxJi);
 
-    mux28 muxJi(Pcmais1, LeDado, Ji, EntradaPC);
+    somador somaPC(saidaMuxJi, EntradaPC);
 
 endmodule
