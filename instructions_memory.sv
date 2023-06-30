@@ -25,10 +25,9 @@ module instructions_memory (
         MEMI[22] = 8'b00001001;
         MEMI[23] = 8'b00001111;
         MEMI[24] = 8'b01111100;
-        MEMI[25] = 8'b00000101;
-        MEMI[26] = 8'b00001010;
-        MEMI[27] = 8'b10100100;
-        MEMI[28] = 8'b11100000;    
+        MEMI[25] = 8'b00001010;
+        MEMI[26] = 8'b10100100;
+        MEMI[27] = 8'b11100000;    
     end
 
     always @(negedge clock) begin
