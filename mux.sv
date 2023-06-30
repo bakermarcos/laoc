@@ -1,5 +1,6 @@
-module mux23(Dado0, Dado1, Sinal, Saida);
- input [2:0] Dado0, Dado1;
+module mux223(Dado0, Dado1, Sinal, Saida);
+ input [1:0] Dado0;
+ input [2:0] Dado1;
  input Sinal;
  output reg [2:0] Saida;
   always @(Sinal or Dado0 or Dado1)

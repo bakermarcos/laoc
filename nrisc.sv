@@ -59,7 +59,7 @@ module nRisc (
     // concat concatenador(Instrucao[2:0], wire_dado_concatenado);
 
     // Mux (Dado0, Dado1, Sinal, Saida):
-    mux23 muxRegEsc(Instrucao[3:1], Instrucao[2:0], SelDest, wire_EscreveReg);
+    mux223 muxRegEsc(Instrucao[4:3], Instrucao[2:0], SelDest, wire_EscreveReg);
     //module ExtensorDeSinal (Entrada, Saida)
     extensor_numeros extensor(Instrucao[1:0], DadoExtendido);
 
@@ -74,7 +74,7 @@ module nRisc (
         Instrucao[2:0],
         Instrucao[4:3],
         EscReg,
-        LeDado,
+        WriteData,
         wire_EscreveReg,
         Data1,
         Data2,
@@ -83,6 +83,8 @@ module nRisc (
 
     //module Ula(Dadol, Dado2, ULAOp, Zero, Resultado):
     ula ula(Entrada1Ula, Data2, ULAOp, Zero, Resultado);
+
+    mux28 muxRegMemUla(Resultado, LeDado, RegFonte, WriteData);
 
     mux28 muxBeqz(DadoExtendido, 8'b00000000, wire_saida_and, wire_muxBeqz);
 

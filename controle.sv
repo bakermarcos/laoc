@@ -44,7 +44,7 @@ module unidade_controle(
        EscMem = 1'b0;
        ULAFonte = 2'b00;
        LerMem = 1'b1;
-       SelDest = 1'b0;
+       SelDest = 1'b1;
        Ji = 1'b0;
        EscReg = 1'b1;
        EscPC = 1'b1;

@@ -17,16 +17,16 @@ module registerBox (
 
     initial begin
         RF[0] = 8'b00000000; // registrador zero
-        RF[1] = 8'b00000000;
-        RF[2] = 8'b00000000;
-        RF[3] = 8'b00000000;
-        RF[4] = 8'b00000000;
-        RF[5] = 8'b00000000;
-        RF[6] = 8'b00000000;
-        RF[7] = 8'b00000000;
+        RF[1] = 8'b00000000; // $t0
+        RF[2] = 8'b00000000; // $s0
+        RF[3] = 8'b00000000; // $s1
+        RF[4] = 8'b00000000; // $s2
+        RF[5] = 8'b00000000; // $s3
+        RF[6] = 8'b00000000; // $s4
+        RF[7] = 8'b00000000; // $s5
     end
 
-    always @(negedge clock or EscReg) begin
+    always @(posedge clock or EscReg) begin
         if (RegWrite==1) begin
             if (EscReg != 3'b000) begin
                 RF[EscReg] = WriteData;

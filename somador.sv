@@ -8,12 +8,13 @@ module somador(entradaPc, saidaPc);
  end
 endmodule
 
-module somadorFinal(entradaPc, saidaPc);
- input [7:0] entradaPc;
+module somadorFinal(entradaSomaMais1, entradamuxJi, saidaPc);
+ input [7:0] entradaSomaMais1;
+ input [7:0] entradamuxJi;
  output reg [7:0] saidaPc;
 
 
- always @(entradaPc) begin
-   saidaPc = entradaPc + 8'b00000001;
+ always @(*) begin
+   saidaPc = entradaSomaMais1 + entradamuxJi;
  end
 endmodule
