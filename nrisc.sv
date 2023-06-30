@@ -19,13 +19,14 @@ module nRisc (
     Data2,
     Data1,
     EscMem,
-    LerMem
+    LerMem,
 );
     input Clock, reset;
     output [7:0] SaidaPCLeEndereco;
     input [7:0] Instrucao;
     input [7:0] LeDado;
     wire [7:0] Pcmais1;
+    reg escrevePC = 1;
 
     // TODO: verificar VARIÁVEL
     wire [2:0] wire_dado_concatenado;
@@ -51,11 +52,11 @@ module nRisc (
     wire [7:0] EntradaPC, saidaMuxJi, wire_muxBeqz;
 
     //module PC (clock, reset, EntradaPC, EscPC, SaidaPC):;
-    PC pc(Clock, reset, EntradaPC, EscPC, SaidaPCLeEndereco);
+    PC pc(Clock, reset, Pcmais1, EscPC, SaidaPCLeEndereco);
     somador soma(SaidaPCLeEndereco, Pcmais1);
 
     // Concatenador (Entrada, Saida)
-    concat concatenador(Instrucao[2:0], wire_dado_concatenado);
+    // concat concatenador(Instrucao[2:0], wire_dado_concatenado);
 
     // Mux (Dado0, Dado1, Sinal, Saida):
     mux23 muxRegEsc(Instrucao[3:1], Instrucao[2:0], SelDest, wire_EscreveReg);
@@ -73,7 +74,7 @@ module nRisc (
         Instrucao[2:0],
         Instrucao[4:3],
         EscReg,
-        WriteData,
+        LeDado,
         wire_EscreveReg,
         Data1,
         Data2,

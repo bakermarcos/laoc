@@ -3,7 +3,7 @@ module instructions_memory (
     endereco,
     instrucao
 );
-    input wire clock;
+    input clock;
     input wire [7:0] endereco;
     output reg [7:0] instrucao;
     reg [7:0] MEMI [255:0];
@@ -66,7 +66,6 @@ module instructions_memory (
         MEMI[63] = 8'b00001001;
         MEMI[64] = 8'b10100100;
         MEMI[65] = 8'b11100000;
-
     end
 
     always @(negedge clock) begin

@@ -11,7 +11,19 @@ module unidade_controle(
  output reg EscReg,
  output reg EscPC
 );
-  always @(Opcode) begin
+  initial begin
+    Beqz = 1'b0;
+    RegFonte = 1'b0;
+    ULAOp = 3'b00;
+    EscMem = 1'b0;
+    ULAFonte = 2'b00;
+    LerMem = 1'b0;
+    SelDest = 1'b0;
+    Ji = 1'b0;
+    EscReg = 1'b0;
+    EscPC = 1'b1;
+  end
+  always @(*) begin
    case(Opcode)
      3'b000: begin
        Beqz = 1'b0;
