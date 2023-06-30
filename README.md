@@ -5,7 +5,7 @@
 
 ## Contexto
 
-Nesse repositório está presente o código, em verilog, de um processador NRisc criado pelo nosso grupo. O mesmo processador está limitado a ter somente 8 bits. Dessa forma, adaptamos as instruções do MIPS (processador base utilizado) para o nosso processador, sendo necessário criar as instruções e o caminho de dados do zero.
+Neste presente repositório está presente o código, em verilog, de um processador NRisc criado pelo nosso grupo. O mesmo processador está limitado a ter somente 8 bits. Dessa forma, adaptamos as instruções do MIPS (processador base utilizado) para o nosso processador, sendo necessário criar as instruções e o caminho de dados do zero.
 
 ## Caminho de dados
 
