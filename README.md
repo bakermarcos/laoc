@@ -10,3 +10,11 @@ Neste presente repositório está presente o código, em verilog, de um processa
 ## Caminho de dados
 
 ![](https://cdn.discordapp.com/attachments/1088625280064688242/1124133830886948924/image.png)
+
+## Simulação
+
+Simulação realizada utilizando o site EDA Playgrounds que tem vários Simuladores integrados.
+- Simulador escolhido foi o Icarus Verilog 0.10.0
+- nRisc e computador tem seus nomes de arquivo mudados para design e testbench respectivamente para seguir o padrão do EDA
+
+https://www.edaplayground.com/
