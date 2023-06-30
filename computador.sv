@@ -43,6 +43,9 @@ module Computador;
         forever begin
             #1;
             Clock = ~Clock;
+            if(processador.SaidaPCLeEndereco == 8'b00011011)begin
+               $finish;
+            end
         end
     end
 
