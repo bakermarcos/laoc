@@ -17,4 +17,5 @@ Simulação realizada utilizando o site EDA Playgrounds que tem vários Simulado
 - Simulador escolhido foi o Icarus Verilog 0.10.0
 - nRisc e computador tem seus nomes de arquivo mudados para design e testbench respectivamente para seguir o padrão do EDA
 
-https://www.edaplayground.com/
+Website: https://www.edaplayground.com/
+Playground: https://www.edaplayground.com/x/nAjk
