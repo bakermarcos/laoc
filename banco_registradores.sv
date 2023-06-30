@@ -1,3 +1,5 @@
+// Código para criar o banco de registradores
+
 module registerBox (
     Read1,
     Read2,
