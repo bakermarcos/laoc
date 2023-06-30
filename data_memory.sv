@@ -20,6 +20,8 @@ module data_memory (
         MEMD[4] = 8'b00000101;
         MEMD[5] = 8'b00000110;
         MEMD[6] = 8'b00000111;
+        MEMD[7] = 8'b00001101;
+        MEMD[9] = 8'b00011011;
     end
 
     // Leitura
