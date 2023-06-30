@@ -10,7 +10,7 @@ module instructions_memory (
 
     initial begin
         // Alguns valores inicializados apenas para testar a memória
-        MEMI[10] = 8'b00000101;
+        MEMI[10] = 8'b00000111;
         MEMI[11] = 8'b00000010;
         MEMI[12] = 8'b00000001;
         MEMI[13] = 8'b00011110;
