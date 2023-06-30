@@ -16,7 +16,7 @@ module unidade_controle(
     RegFonte = 1'b0;
     ULAOp = 3'b00;
     EscMem = 1'b0;
-    ULAFonte = 2'b00;
+    ULAFonte = 2'b10;
     LerMem = 1'b0;
     SelDest = 1'b0;
     Ji = 1'b0;
@@ -30,7 +30,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 3'b10;
        EscMem = 1'b0;
-       ULAFonte = 2'b00;
+       ULAFonte = 2'b10;
        LerMem = 1'b0;
        SelDest = 1'b0;
        Ji = 1'b0;
@@ -42,7 +42,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 3'b00;
        EscMem = 1'b0;
-       ULAFonte = 2'b00;
+       ULAFonte = 2'b10;
        LerMem = 1'b1;
        SelDest = 1'b1;
        Ji = 1'b0;
@@ -54,7 +54,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 2'b00;
        EscMem = 1'b1;
-       ULAFonte = 2'b00;
+       ULAFonte = 2'b10;
        LerMem = 1'b0;
        SelDest = 1'b1;
        Ji = 1'b0;
@@ -66,7 +66,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 3'b00;
        EscMem = 1'b0;
-       ULAFonte = 2'b00;
+       ULAFonte = 2'b10;
        LerMem = 1'b0;
        SelDest = 1'b0;
        Ji = 1'b0;
@@ -90,7 +90,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 3'b00;
        EscMem = 1'b0;
-       ULAFonte = 2'b00;
+       ULAFonte = 2'b10;
        LerMem = 1'b0;
        SelDest = 1'b0;
        Ji = 1'b1;
@@ -102,7 +102,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 3'b01;
        EscMem = 1'b0;
-       ULAFonte = 2'b00;
+       ULAFonte = 2'b10;
        LerMem = 1'b0;
        SelDest = 1'b0;
        Ji = 1'b0;
@@ -114,7 +114,7 @@ module unidade_controle(
        RegFonte = 1'b0;
        ULAOp = 3'b00;
        EscMem = 1'b0;
-       ULAFonte = 2'b00;
+       ULAFonte = 2'b10;
        LerMem = 1'b0;
        SelDest = 1'b0;
        Ji = 1'b0;

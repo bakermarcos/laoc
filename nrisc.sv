@@ -26,7 +26,6 @@ module nRisc (
     input [7:0] Instrucao;
     input [7:0] LeDado;
     wire [7:0] Pcmais1;
-    reg escrevePC = 1;
 
     // TODO: verificar VARIÁVEL
     wire [2:0] wire_dado_concatenado;
@@ -82,7 +81,7 @@ module nRisc (
     );
 
     //module Ula(Dadol, Dado2, ULAOp, Zero, Resultado):
-    ula ula(Entrada1Ula, Data2, ULAOp, Zero, Resultado);
+    ula ula(Entrada1Ula, Data1, ULAOp, Zero, Resultado);
 
     mux28 muxRegMemUla(Resultado, LeDado, RegFonte, WriteData);
 
