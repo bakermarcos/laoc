@@ -26,7 +26,6 @@ module Computador;
         .instrucao(Instrucao)
     );
 
-    //module memoria de_dados (clock, EscMem, LerMem, endereco, escreveDado, leDado):
     data_memory MemD (
         .clock(Clock),
         .memWrite(EscMem),
